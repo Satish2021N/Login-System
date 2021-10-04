@@ -8,18 +8,30 @@ root.config(bg="white")
 root.iconbitmap('favicon.ico')
 
 def get_data():
-    print("First Name:", firstname.get())
-    print("Last Name:", lastname.get())
-    print("Email Address:", eaddress.get())
-    print("Contact No:", contact.get())
+    first_name = firstname.get()
+    last_name = lastname.get()
+    email_address = eaddress.get()
+    contact_address = contact.get()
+    print(first_name)
+    print(last_name)
+    print(email_address)
+    print(contact_address)
+
+    file = open("user.txt","w")
+    file.write(first_name)
+    file.write(last_name)
+    file.write(email_address)
+    file.write(contact_address)
+    file.close()
+    print("User info has been registered successfully")
 
 
-'''Background Image"'''
-bg= ImageTk.PhotoImage(file="Images/Background.jpg")
-label=Label(root, image=bg).place(relwidth=1, relheight=1)
+'''Background Image'''
+background= ImageTk.PhotoImage(file="Background.jpg")
+label=Label(root, image=background).place(relwidth=1, relheight=1)
 
 '''Title'''
-title =Label(root, text="REGISTER HERE", font=("Comic Sans MS", 20, "bold"), bg="white", fg="Black").place(x=180, y =90)
+title =Label(root, text="REGISTER HERE", font=("Comic Sans MS", 20, "bold"), bg="white", fg="Black").place(x=180, y=90)
 
 '''Widgets'''
 
@@ -40,7 +52,7 @@ c_contact = Label(root, text="Contact No.", font=("Comic Sans MS", 13,"bold"), b
 txt_contact =Entry(root, font=("Comic Sans MS", 11),  bg="#FBFCFC", textvariable=contact) .place(x=220,y=345, width=250)
 
 chk = Checkbutton(root, text="I agree to the terms and conditions", font=("Comic Sans MS",11), bg="white") .place(x=150,y=400)
-btn_register = Button(root, text="REGISTER", font=("Comic Sans MS",13),bd=0,cursor="hand2", command=get_data, bg="#52be80", fg="black") .place(x=250, y=450)
+btn_register = Button(root, text="REGISTER", font=("Comic Sans MS",13),bd=0,cursor="hand2", command=get_data,bg="#0b9663", fg="white") .place(x=240, y=450, width=150)
 
 
 root.mainloop()
